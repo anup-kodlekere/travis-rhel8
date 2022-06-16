@@ -10,3 +10,13 @@ jobs:
         - gcc --version
         - gcc r8.c -o r8
         - ./r8
+    - os: linux
+      #dist: rhel8
+      language: c
+      compiler:
+        - gcc
+      script:
+        - echo "Testing C Compiler (gcc)"
+        - gcc --version
+        - gcc r8.c -o r8
+        - ./r8
