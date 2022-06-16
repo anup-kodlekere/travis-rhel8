@@ -8,5 +8,5 @@ jobs:
       script:
         - echo "Testing C Compiler (gcc)"
         - gcc --version
-        - gcc r8.c
-        - ./a.out
+        - gcc r8.c -o r8
+        - ./r8
