@@ -35,7 +35,7 @@ jobs:
         
         - echo "Testing C++ Compiler (clang)"
         - clang --version
-        - clang r8.cpp -o r8clang
+        - clang r8.cpp -std=c++17 -o r8clang
         - ./r8clang
         
     - os: linux
@@ -55,6 +55,8 @@ jobs:
       dist: rhel8
       env: GO
       language: go
+      go:
+        - 1.17.x
       script:
         - sudo cat /etc/os-release
         - echo "Testing Go Compiler"
