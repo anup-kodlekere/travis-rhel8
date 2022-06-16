@@ -42,6 +42,7 @@ jobs:
       dist: rhel8
       env: JAVA
       language: java
+      jdk: openjdk10
       script:
         - sudo cat /etc/os-release
         - echo "Testing java Compiler"
