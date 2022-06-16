@@ -2,7 +2,6 @@ os: linux
 dist: rhel8
 
 script:
-  - sudo cat /etc/redhat-release
   - sudo cat /etc/os-release
   - sudo yum update -y
   - uname -a
