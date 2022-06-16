@@ -34,8 +34,8 @@ jobs:
         - ./r8gcc
         
         - echo "Testing C++ Compiler (clang)"
-        - clang --version
-        - clang r8.cpp -std=c++17 -o r8clang
+        - clang++ --version
+        - clang++ r8.cpp -std=c++17 -o r8clang
         - ./r8clang
         
     - os: linux
