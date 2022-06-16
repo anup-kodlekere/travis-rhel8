@@ -48,15 +48,14 @@ jobs:
         - echo "Testing java Compiler"
         - java -version
         - javac --version
-        - javac r8
+        - javac r8.java
         - java r8
         
     - os: linux
       dist: rhel8
-      env: GO
       language: go
-      go:
-        - 1.17.x
+      # go:
+      #   - 1.17.x
       script:
         - sudo cat /etc/os-release
         - echo "Testing Go Compiler"
