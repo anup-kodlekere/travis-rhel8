@@ -45,7 +45,7 @@ jobs:
       script:
         - sudo cat /etc/os-release
         - echo "Testing java Compiler"
-        - java --version
+        - java -version
         - javac --version
         - javac r8
         - java r8
@@ -68,7 +68,7 @@ jobs:
         - sudo cat /etc/os-release
         - echo "Testing Python interpreter"
         - python --version
-        - python r8
+        - python r8.py
 
     - os: linux
       dist: rhel8
@@ -80,11 +80,11 @@ jobs:
         - ruby -v
         - ruby r8.rb
         
-    - os: linux
-      dist: rhel8
-      env: PIP
-      language: python
-      script:
-        - sudo cat /etc/os-release
-        - echo "Testing PIP"
-        - pip3 install pip-hello-world
+#     - os: linux
+#       dist: rhel8
+#       env: PIP
+#       language: python
+#       script:
+#         - sudo cat /etc/os-release
+#         - echo "Testing PIP"
+#         - pip3 install pip-hello-world
