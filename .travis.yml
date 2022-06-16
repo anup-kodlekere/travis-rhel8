@@ -1,45 +1,37 @@
 os: linux
 dist: rhel8
 
+jobs:
+  include:
+    - compiler:
+      - gcc
+
+      - echo "Testing C Compiler (gcc)"
+      - gcc --version
+      - gcc r8.c
+      - ./a.out
+      
+      - echo "Testing C++ Compiler (gcc)"
+      - g++ --version
+      - g++ r8.cpp
+      - ./a.out
+      
+    - compiler:
+      - clang
+
+      - echo "Testing C Compiler (clang)"
+      - clang --version
+      - clang r8.c
+      - ./a.out
+      
+      - echo "Testing C++ Compiler (clang)"
+      - clang --version
+      - clang r8.cpp
+      - ./a.out
+      
+
+
 script:
   - sudo cat /etc/os-release
   - sudo yum update -y
   - uname -a
-
-  - echo "Testing C Compiler (gcc)"
-  - gcc --version
-  - gcc r8.c
-  - ./a.out
-  
-  - echo "Testing C Compiler (clang)"
-  - clang --version
-  - clang r8.c
-  - ./a.out
-  
-  - echo "Testing C++ Compiler (gcc)"
-  - g++ --version
-  - g++ r8.cpp
-  - ./a.out
-  
-  - echo "Testing C++ Compiler (clang)"
-  - clang r8.cpp
-  - ./a.out
-  
-  - echo "Testing Go compiler"
-  - go version
-  - go run r8.go
-  
-#   - echo "Testing Java Compiler"
-#   - java --version
-#   - javac r8.java
-#   - java r8
-  
-  - echo "Testing Python Interpreter"
-  - python --version
-  - python r8.py
-  
-  - echo "Testing make"
-  - make --version
-  
-  - echo "Testing PIP"
-  - pip3 install pip-hello-world
