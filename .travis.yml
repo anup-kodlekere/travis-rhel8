@@ -30,6 +30,11 @@ script:
   - go version
   - go run r8.go
   
+  - echo "Testing Java Compiler"
+  - java --version
+  - javac r8.java
+  - java r8
+  
   - echo "Testing Python Interpreter"
   - python --version
   - python r8.py
