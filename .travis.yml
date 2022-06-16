@@ -5,7 +5,7 @@ jobs:
   include:
     - compiler:
       - gcc
-
+    - script:
       - echo "Testing C Compiler (gcc)"
       - gcc --version
       - gcc r8.c
@@ -18,7 +18,7 @@ jobs:
       
     - compiler:
       - clang
-
+    - script:
       - echo "Testing C Compiler (clang)"
       - clang --version
       - clang r8.c
@@ -33,5 +33,5 @@ jobs:
 
 script:
   - sudo cat /etc/os-release
-  - sudo yum update -y
+ # - sudo yum update -y
   - uname -a
