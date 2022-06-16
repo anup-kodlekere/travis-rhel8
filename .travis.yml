@@ -16,12 +16,12 @@ script:
   - clang r8.c
   - ./a.out
   
-  - echo "Testing C++ Compiler (gcc)
+  - echo "Testing C++ Compiler (gcc)"
   - g++ --version
   - g++ r8.cpp
   - ./a.out
   
-  - echo "Testing C++ Compiler (clang)
+  - echo "Testing C++ Compiler (clang)"
   - clang r8.cpp
   - ./a.out
   
@@ -29,10 +29,10 @@ script:
   - go version
   - go run r8.go
   
-  - echo "Testing Java Compiler"
-  - java --version
-  - javac r8.java
-  - java r8
+#   - echo "Testing Java Compiler"
+#   - java --version
+#   - javac r8.java
+#   - java r8
   
   - echo "Testing Python Interpreter"
   - python --version
