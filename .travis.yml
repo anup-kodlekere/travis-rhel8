@@ -1,37 +1,12 @@
-os: linux
-dist: rhel8
-
 jobs:
   include:
-    - compiler:
-      - gcc
-    - script:
-      - echo "Testing C Compiler (gcc)"
-      - gcc --version
-      - gcc r8.c
-      - ./a.out
-      
-      - echo "Testing C++ Compiler (gcc)"
-      - g++ --version
-      - g++ r8.cpp
-      - ./a.out
-      
-    - compiler:
-      - clang
-    - script:
-      - echo "Testing C Compiler (clang)"
-      - clang --version
-      - clang r8.c
-      - ./a.out
-      
-      - echo "Testing C++ Compiler (clang)"
-      - clang --version
-      - clang r8.cpp
-      - ./a.out
-      
-
-
-script:
-  - sudo cat /etc/os-release
- # - sudo yum update -y
-  - uname -a
+    - os: linux
+      dist: rhel8
+      language: c
+      compiler:
+        - gcc
+      script:
+        - echo "Testing C Compiler (gcc)"
+        - gcc --version
+        - gcc r8.c
+        - ./a.out
