@@ -51,17 +51,6 @@ jobs:
         - javac r8.java
         - java r8
         
-#     - os: linux
-#       dist: rhel8
-#       language: go
-#       # go:
-#       #   - 1.17.x
-#       script:
-#         - sudo cat /etc/os-release
-#         - echo "Testing Go Compiler"
-#         - go version
-#         - go run r8.go
-        
     - os: linux
       dist: rhel8
       env: PYTHON
@@ -81,6 +70,25 @@ jobs:
         - echo "Testing Ruby interpreter"
         - ruby -v
         - ruby r8.rb
+        
+    - os: linux
+      dist: rhel8
+      env: Make
+      script:
+        - sudo cat /etc/os-release
+        - echo "Testing make"
+        - make --version
+        
+#     - os: linux
+#       dist: rhel8
+#       language: go
+#       # go:
+#       #   - 1.17.x
+#       script:
+#         - sudo cat /etc/os-release
+#         - echo "Testing Go Compiler"
+#         - go version
+#         - go run r8.go
         
 #     - os: linux
 #       dist: rhel8
