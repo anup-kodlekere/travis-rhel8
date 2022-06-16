@@ -2,21 +2,89 @@ jobs:
   include:
     - os: linux
       dist: rhel8
+      env: C_GCC_CLANG
       language: c
       compiler:
         - gcc
+        - clang
       script:
+        - sudo cat /etc/os-release
         - echo "Testing C Compiler (gcc)"
         - gcc --version
-        - gcc r8.c -o r8
-        - ./r8
+        - gcc r8.c -o r8gcc
+        - ./r8gcc
+        
+        - echo "Testing C Compiler (clang)"
+        - clang --version
+        - clang r8.c -o r8clang
+        - ./r8clang
+
     - os: linux
-      #dist: rhel8
-      language: c
+      dist: rhel8
+      env: CPP_GCC_CLANG
+      language: cpp
       compiler:
         - gcc
+        - clang
       script:
-        - echo "Testing C Compiler (gcc)"
-        - gcc --version
-        - gcc r8.c -o r8
-        - ./r8
+        - sudo cat /etc/os-release
+        - echo "Testing C++ Compiler (gcc)"
+        - g++ --version
+        - g++ r8.cpp -o r8gcc
+        - ./r8gcc
+        
+        - echo "Testing C++ Compiler (clang)"
+        - clang --version
+        - clang r8.cpp -o r8clang
+        - ./r8clang
+        
+    - os: linux
+      dist: rhel8
+      env: JAVA
+      language: java
+      script:
+        - sudo cat /etc/os-release
+        - echo "Testing java Compiler"
+        - java --version
+        - javac --version
+        - javac r8
+        - java r8
+        
+    - os: linux
+      dist: rhel8
+      env: GO
+      language: go
+      script:
+        - sudo cat /etc/os-release
+        - echo "Testing Go Compiler"
+        - go version
+        - go run r8.go
+        
+    - os: linux
+      dist: rhel8
+      env: PYTHON
+      language: python
+      script:
+        - sudo cat /etc/os-release
+        - echo "Testing Python interpreter"
+        - python --version
+        - python r8
+
+    - os: linux
+      dist: rhel8
+      env: GO
+      language: ruby
+      script:
+        - sudo cat /etc/os-release
+        - echo "Testing Ruby interpreter"
+        - ruby -v
+        - ruby r8.rb
+        
+    - os: linux
+      dist: rhel8
+      env: PIP
+      language: python
+      script:
+        - sudo cat /etc/os-release
+        - echo "Testing PIP"
+        - pip3 install pip-hello-world
